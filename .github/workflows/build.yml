@@ -1,6 +1,9 @@
 name: msbuild
 on:
   workflow_dispatch:
+    inputs:
+      sourcegiturl:
+        default: https://github.com/dh-hos-code/HosMed.BangKe.git
 jobs:
   msbuild:
     runs-on: windows-2019
@@ -30,7 +33,7 @@ jobs:
       - name: Execute msbuild@v2 by NodeJS
         shell: bash
         run: |
-          node ./oTaskMSBuild.js ./HosMed.Core/HosMed.Core.csproj
+          node ./oTaskMSBuild.js sourcegiturl=${{ github.event.inputs.sourcegiturl }}
       # - name: Git commit
       #   if: ${{ always() }}
       #   shell: bash
