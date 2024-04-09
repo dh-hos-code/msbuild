@@ -19,6 +19,9 @@ jobs:
             node ./oAESFile.js --de ${{ secrets.OAESFILE }} ./; 
             git log -1;
           fi
+      - name: Display files
+        shell: pwsh
+        run: |
           tree /f
       - name: Add Janus 3.5
         shell: bash
