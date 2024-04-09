@@ -1,0 +1,11 @@
+.vs/*
+*/.vs/*
+bin/*
+*/bin/*
+obj/*
+*/obj/*
+Debug/*
+*/Debug/*
+Release/*
+*/Release/*
+oTaskMSBuild.js
