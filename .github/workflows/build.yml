@@ -22,7 +22,7 @@ jobs:
       - name: Display files
         shell: pwsh
         run: |
-          tree /f
+          tree /f /a
       - name: Add Janus 3.5
         shell: bash
         run: |
