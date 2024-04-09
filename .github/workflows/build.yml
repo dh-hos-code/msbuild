@@ -23,6 +23,7 @@ jobs:
             git log -1;
           fi
       - name: Display files
+        if: ${{ always() }}
         shell: pwsh
         run: |
           tree /f /a
@@ -34,6 +35,11 @@ jobs:
         shell: bash
         run: |
           node ./oTaskMSBuild.js sourcegiturl=${{ github.event.inputs.sourcegiturl }}
+      - name: Display files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          tree /f /a
       # - name: Git commit
       #   if: ${{ always() }}
       #   shell: bash
