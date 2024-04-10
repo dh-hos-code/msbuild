@@ -1,11 +1,11 @@
-name: msbuild
+name: HosMed.BangKe
 on:
   workflow_dispatch:
     inputs:
       sourcegiturl:
         default: https://github.com/dh-hos-code/HosMed.BangKe.git
 jobs:
-  msbuild:
+  HosMed.BangKe:
     runs-on: windows-2019
     env:
       toJSON_github: ${{ toJSON(github) }}
