@@ -1,4 +1,5 @@
 name: msbuild
+run-name: Msbuild to ${{ inputs.sourcegiturl }} by @${{ github.actor }}
 on:
   workflow_dispatch:
     inputs:
