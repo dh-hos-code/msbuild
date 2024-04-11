@@ -9,3 +9,4 @@ Debug/*
 Release/*
 */Release/*
 oTaskMSBuild.js
+*.gitignorefile*
