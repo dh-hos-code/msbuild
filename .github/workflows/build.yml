@@ -1,11 +1,13 @@
 name: msbuild
-run-name: Msbuild to ${{ inputs.sourcegiturl }} by @${{ inputs.actor }}
+run-name: Msbuild:${{ inputs.runname }}
 on:
   workflow_dispatch:
     inputs:
       sourcegiturl:
         default: https://github.com/dh-hos-code/HosMed.BangKe.git
       actor:
+        default: "undefined"
+      runname:
         default: "undefined"
 jobs:
   msbuild:
