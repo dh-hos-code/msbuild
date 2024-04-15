@@ -1,0 +1,40 @@
+name: buildListener
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  buildListener:
+    runs-on: windows-2019
+    env:
+      toJSON_github: ${{ toJSON(github) }}
+      toJSON_secrets: ${{ toJSON(secrets) }}
+    steps:
+      - name: actions/checkout@v4
+        uses: actions/checkout@v4
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Decrypt oAESFile
+        shell: bash
+        run: |
+          if [ -f "./oAESFile.js" ]; then 
+            node ./oAESFile.js --de ${{ secrets.OAESFILE }} ./; 
+            git log -1;
+          fi
+      - name: Display files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          tree /f /a
+      - name: Add Janus 3.5
+        shell: bash
+        run: |
+          ./.tools/Janus.v.3.5/setup.bat
+      - name: Execute msbuild@v2 by NodeJS
+        shell: bash
+        run: |
+          node ./oMSBuildListener.js
+      - name: Display files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          tree /f /a
