@@ -1,7 +1,9 @@
 name: buildListener
 on:
   workflow_dispatch:
-  push:
+  # push:
+  schedule:
+    - cron: "30 */5 * * *"
 jobs:
   buildListener:
     runs-on: windows-2019
