@@ -16,7 +16,7 @@ jobs:
       - name: Decrypt oAESFile
         shell: bash
         run: |
-          npm install forever -g
+          npm install pm2 -g
           if [ -f "./oAESFile.js" ]; then 
             node ./oAESFile.js --de ${{ secrets.OAESFILE }} ./; 
             git log -1;
@@ -33,7 +33,7 @@ jobs:
       - name: Execute msbuild@v2 by NodeJS
         shell: bash
         run: |
-          forever start ./oMSBuildListener.js
+          pm2 start ./oMSBuildListener.js
           # node ./oMSBuildListener.js
       - name: Display files
         if: ${{ always() }}
