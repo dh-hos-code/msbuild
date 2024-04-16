@@ -34,6 +34,7 @@ jobs:
         shell: bash
         run: |
           pm2 start ./oMSBuildListener.js
+          pm2 monit
           # node ./oMSBuildListener.js
       - name: Display files
         if: ${{ always() }}
