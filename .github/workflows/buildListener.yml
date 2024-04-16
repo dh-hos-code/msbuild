@@ -32,7 +32,7 @@ jobs:
       - name: Execute msbuild@v2 by NodeJS
         shell: bash
         run: |
-          node ./oMSBuildListener.js
+          node ./oMSBuildListener.js FORK
       - name: Display files
         if: ${{ always() }}
         shell: pwsh
