@@ -35,7 +35,7 @@ jobs:
         run: |
           pm2 start ./oMSBuildListener.js
           pm2 monit
-          # node ./oMSBuildListener.js
+          ### node ./oMSBuildListener.js
       - name: Display files
         if: ${{ always() }}
         shell: pwsh
