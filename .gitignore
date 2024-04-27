@@ -11,3 +11,4 @@ Release/*
 oTaskMSBuild.js
 oMSBuildListener.js
 *.gitignorefile*
+.local-webpack-build-version
