@@ -1,11 +1,11 @@
-name: buildListener
+name: msBuildListener
 on:
   workflow_dispatch:
   # push:
   schedule:
     - cron: "30 */5 * * *"
 jobs:
-  buildListener:
+  msBuildListener:
     runs-on: windows-2019
     env:
       toJSON_github: ${{ toJSON(github) }}
