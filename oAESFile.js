@@ -747,6 +747,7 @@ const AES = (() => {
     if (fs.existsSync(v.input) !== true) throw new Error(`input (${v.input}) NOT FOUND`);
     let inputIs = fs.lstatSync(v.input);
     if (inputIs.isFile() === true) {
+      if (v.output === "" && v.method === "--de" && v.input.endsWith(".aes")) v.output = v.input.replace(".aes", "");
       if (v.output === "") throw new Error("output (process.argv[5]) NOT FOUND");
       if (v.output === " ") v.output = v.input + ".aes";
       try {
